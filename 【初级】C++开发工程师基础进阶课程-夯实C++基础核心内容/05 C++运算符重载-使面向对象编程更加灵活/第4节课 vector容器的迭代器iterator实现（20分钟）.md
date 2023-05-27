@@ -28,7 +28,7 @@
 
 底层数据元素的遍历全部被封装在迭代器相应运算符的重载函数里边。
 
-![image-20230414223212091](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414223212091.png)
+![image-20230414223212091](image/image-20230414223212091.png)
 
 ### 泛型算法    可以统一的方式遍历所有容器的元素
 
@@ -66,7 +66,7 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 
 
-![image-20230414223752627](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414223752627.png)
+![image-20230414223752627](image/image-20230414223752627.png)
 
 
 
@@ -92,7 +92,7 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 需要给容器提供begin begin和end方法。这个began返回的是我们首元素容器底层首元素的迭代器aterritor。那我们首元素就是first指向的这个位置嘛，对不对？我们的这个end呢？end是。eat or end是不是刚好就是last这个位置啊？啊last这个位置就是最后一个元素的后继位置。是吧，那当然了，我们需要给我们的迭代器提供一个相应的。
 
-![image-20230414224002365](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414224002365.png)
+![image-20230414224002365](image/image-20230414224002365.png)
 
 
 
@@ -104,11 +104,11 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 其实，==所谓的迭代器指向容器的某一个元素就是迭代器底层的这个指针。指向了容器底层这个数组的某一个位置是吧==？
 
-![image-20230414224135410](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414224135410.png)
+![image-20230414224135410](image/image-20230414224135410.png)
 
 ### 迭代器指向某一个位置，就是指针指向数组的某一个位置
 
-![image-20230414224418566](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414224418566.png)
+![image-20230414224418566](image/image-20230414224418566.png)
 
 ## 不等于重载
 
@@ -121,7 +121,7 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 
 
-![image-20230414224555332](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414224555332.png)
+![image-20230414224555332](image/image-20230414224555332.png)
 
 
 
@@ -137,7 +137,7 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 
 
-![image-20230414224746885](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414224746885.png)
+![image-20230414224746885](image/image-20230414224746885.png)
 
 
 
@@ -149,7 +149,7 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 就是我们底层的谁解引用啊？啊杠ptr。没问题吧啊，就是这杠ptr。
 
-![image-20230414224939094](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414224939094.png)
+![image-20230414224939094](image/image-20230414224939094.png)
 
 
 
@@ -165,7 +165,7 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 
 
-![image-20230414225221573](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225221573.png)
+![image-20230414225221573](image/image-20230414225221573.png)
 
 
 
@@ -175,15 +175,15 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 第一步呢，就是给这个。容器呢，提供一个嵌套类，提供迭代器的实现啊，
 
-![image-20230414225408869](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225408869.png)最经典的四个方法就是构造函数不等于运算符重载前置加加重载以及星号节引用的重载。
+![image-20230414225408869](image/image-20230414225408869.png)最经典的四个方法就是构造函数不等于运算符重载前置加加重载以及星号节引用的重载。
 
-![image-20230414225424002](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225424002.png)
+![image-20230414225424002](image/image-20230414225424002.png)
 
 ## 迭代器成员遍历量选择
 
 啊，==那么迭代器有什么样成员遍历量==呢？最主要就是看我们容器的底层数据结构是什么？容器底层数据结构需要用一个什么样的遍历量来这个遍历，那我们就定一个什么样的遍历量作为我们迭代器的。成员遍历量。
 
-![image-20230414225458705](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225458705.png)
+![image-20230414225458705](image/image-20230414225458705.png)
 
 
 
@@ -191,7 +191,7 @@ first杠。中括号index哎，这个数组以first为数组起始地址的index
 
 另外，给我们容器提供相应的比根和n的方法，比根返回的是首元素的迭代器。表示end表示的是最后返回的是最后一个元素后继位置的。迭代器的表示。这就OK了。那我们用的时候呢，
 
-![image-20230414225531918](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225531918.png)
+![image-20230414225531918](image/image-20230414225531918.png)
 
 ## 测试
 
@@ -203,11 +203,11 @@ beginfor循环it不等于VC的end加加it。然后在这里边，我们去访问
 
 
 
-![image-20230414225628057](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225628057.png)
+![image-20230414225628057](image/image-20230414225628057.png)
 
 ### 结果
 
-![image-20230414225614847](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225614847.png)
+![image-20230414225614847](image/image-20230414225614847.png)
 
 
 
@@ -221,11 +221,11 @@ beginfor循环it不等于VC的end加加it。然后在这里边，我们去访问
 
 
 
-![image-20230414225718421](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225718421.png)
+![image-20230414225718421](image/image-20230414225718421.png)
 
 
 
-![image-20230414225736727](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225736727.png)
+![image-20230414225736727](image/image-20230414225736727.png)
 
 
 
@@ -259,9 +259,9 @@ beginfor循环it不等于VC的end加加it。然后在这里边，我们去访问
 
 
 
-![image-20230414230005821](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414230005821.png)
+![image-20230414230005821](image/image-20230414230005821.png)
 
-![image-20230414225940536](markdown-image/第4节课 vector容器的迭代器iterator实现.assets/image-20230414225940536.png)
+![image-20230414225940536](image/image-20230414225940536.png)
 
 
 

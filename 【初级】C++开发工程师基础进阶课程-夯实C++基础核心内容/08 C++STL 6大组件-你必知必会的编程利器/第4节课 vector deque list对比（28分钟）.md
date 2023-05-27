@@ -20,7 +20,7 @@
 
 一些细节性的东西就来看你呀，就来考察你对容器的底层到底有没有做过了解？
 
-![image-20230415211601834](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415211601834.png)
+![image-20230415211601834](image/image-20230415211601834.png)
 
 
 
@@ -34,7 +34,7 @@
 
 这是我们vector底层的一些呃特点，
 
-![image-20230415211700112](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415211700112.png)
+![image-20230415211700112](image/image-20230415211700112.png)
 
 
 
@@ -42,7 +42,7 @@
 
 那么当我们去默认定一个vector的时候啊，默认定一个vector的时候呢？啊，那么。这个容器底层根本就没有开辟过任何空间，当我现在呢，通过push back或者insert方法呢，给这个vector容器添加元素的时候啊。它才从0到1到2到4到八唉，这样的2倍的方式进行扩容啊，扩容所带来的这个效率呢？不是很高的啊，不是很高的，我们之前说过，因为它要在新的内存上，是不是拷贝构造新的对象啊，用原来老内存上的对象。在新内存上，拷贝构造新的对象，然后再把原来老内存的对象一一进行析构，再把原来老内存进行一个free。
 
-![image-20230415211808194](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415211808194.png)
+![image-20230415211808194](image/image-20230415211808194.png)
 
 
 
@@ -52,7 +52,7 @@
 
 我们当时还给大家做过了reserve，跟resize的区别。好的吧。这是vector的一个特点啊，
 
-![image-20230415211841890](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415211841890.png)
+![image-20230415211841890](image/image-20230415211841890.png)
 
 
 
@@ -68,7 +68,7 @@
 
 之前讲过的，得空的这个内容呢，把这里边儿呢回忆回忆啊回忆回忆。好，我们回顾完这两个
 
-![image-20230415212011547](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415212011547.png)
+![image-20230415212011547](image/image-20230415212011547.png)
 
 ## deque底层内存是连续的吗
 
@@ -80,7 +80,7 @@
 
 
 
-![image-20230415212243352](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415212243352.png)
+![image-20230415212243352](image/image-20230415212243352.png)
 
 ## deque底层 画图
 
@@ -92,7 +92,7 @@
 
 
 
-![image-20230415212346783](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415212346783.png)
+![image-20230415212346783](image/image-20230415212346783.png)
 
 ## vector 与 deque 的区别
 
@@ -129,13 +129,13 @@ vector行不行啊？==vector就只是一个一维数组动态开闭的一维数
 ### deque使用内存效率更高
 
 那也就是说呢，在这里边儿我们deque，对于内存的使用效率是不是会更高点啊啊？==只要你有适合我第二维大小的内存块儿，我就可以分配成功==，
-![image-20230415213055807](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415213055807.png)
+![image-20230415213055807](image/image-20230415213055807.png)
 
 我不需要那么大连续的内存空间。是不是啊？那么可以可以分块儿进行。数据存储啊，可以分块儿去进行数据存储，不需要内存空间必须是。一片。啊，连续的啊，不需要内存空间必须是一片连续的，
 
 这也是我们这两个容器底层数据结构不同啊，给它们带来的这个区别
 
-![image-20230415213141609](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415213141609.png)
+![image-20230415213141609](image/image-20230415213141609.png)
 
 
 
@@ -175,7 +175,7 @@ vector行不行啊？==vector就只是一个一维数组动态开闭的一维数
 
 你挪动的复杂，多挪挪动的这个操作比较复杂，比较多，那么意味着生成的指令就多，指令就多。那么CPU执行起来肯定要费时间，肯定要慢OK吧啊。
 
-![image-20230415213454958](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415213454958.png)
+![image-20230415213454958](image/image-20230415213454958.png)
 
 
 
@@ -191,7 +191,7 @@ vector行不行啊？==vector就只是一个一维数组动态开闭的一维数
 
 好的吧啊，那么我们从这个四点呢来聊了一下victor和deque之间的区别啊，面试官特别喜欢。
 
-![image-20230415214953248](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415214953248.png)
+![image-20230415214953248](image/image-20230415214953248.png)
 
 
 
@@ -221,7 +221,7 @@ vector行不行啊？==vector就只是一个一维数组动态开闭的一维数
 
 好。考虑完这一块儿呢
 
-![image-20230415215058222](markdown-image/第4节课 vector deque list对比（28分钟）.assets/image-20230415215058222.png)
+![image-20230415215058222](image/image-20230415215058222.png)
 
 
 

@@ -14,7 +14,7 @@
 
 我们来看一下。首先呢？这是我们定义了一个vector容器啊。从理论上来说呢，我们现在定义了一个容器，给里边并没有添加任何的东西。是不是啊啊？
 
-![image-20230414160527041](markdown-image/第四节课 理解容器空间配置器allocator的重要性.assets/image-20230414160527041.png)
+![image-20230414160527041](image/image-20230414160527041.png)
 
 那我们看一看啊，我们在这儿呢。定了一个test，这么一个类型啊test，这么一个类型。那么在这我们给他添加了这个。构造函数。构造函数我们加了一下，
 
@@ -22,7 +22,7 @@
 
 这就是让我们非常头疼的地方啊，非常头疼的地方啊，为什么这么说呢？那在这儿看一下一个空容器，竟然给我构造了十个test对象。那出作用域虚构的时候呢？又去析构了十个。
 
-![image-20230414160629719](markdown-image/第四节课 理解容器空间配置器allocator的重要性.assets/image-20230414160629719.png)
+![image-20230414160629719](image/image-20230414160629719.png)
 
 
 
@@ -32,7 +32,7 @@ test对象为什么是十个test？为什么构造这么多东西呢？我现在
 
 
 
-![image-20230414160923799](markdown-image/第四节课 理解容器空间配置器allocator的重要性.assets/image-20230414160923799.png)
+![image-20230414160923799](image/image-20230414160923799.png)
 
 
 
@@ -60,7 +60,7 @@ test对象为什么是十个test？为什么构造这么多东西呢？我现在
 
 
 
-![image-20230414190623515](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414190623515.png)
+![image-20230414190623515](image/image-20230414190623515.png)
 
 ## 有效的元素
 
@@ -72,7 +72,7 @@ last到end是没用的
 
 现在是三个成员变量。是杠first杠last。杠end那么现在指向了这个位置，是不是我们刚才？给大家举例子，后边全画满了啊，这个first现在实现的是这。这个last指向的是最后一个有效元素的后继位置。end指向的是这里。数组整个空间的后继位置对的吧啊，那应该delete的时候应该把这个指针指向的堆内存上有效的对象。析构掉，然后把整个的内存再释放掉啊
 
-![image-20230414190646282](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414190646282.png)
+![image-20230414190646282](image/image-20230414190646282.png)
 
 
 
@@ -92,7 +92,7 @@ last到end是没用的
 
 
 
-![image-20230414191109167](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414191109167.png)
+![image-20230414191109167](image/image-20230414191109167.png)
 
 
 
@@ -100,7 +100,7 @@ last到end是没用的
 
 而现在不是，而现在因为你这个生成容器的时候呢，底层呢，用了一个new，所以在这里边儿，它相当于每一个位置都已经放了一个test对象，都已经放了一个test对象。啊而而而我们现在呢？而大家现在呢？
 
-![image-20230414191132915](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414191132915.png)
+![image-20230414191132915](image/image-20230414191132915.png)
 
 
 
@@ -118,7 +118,7 @@ last到end是没用的
 
 pop back.同学们想一想啊，这个容器呢？底层的这个对象很有可能啊，它占用外部资源了，就是这个test的对象啊，它有可能占用了外部资源。而我们现在所有的pop back的话呢，直接只是把last指针减减了一下啊，last指针指向这个地方。==相当于我们这个对象就访问不到了，下一次我们再给里边儿添加一个对象的话，我们把对象的值直接就写到这里边儿来了==。那么，我们这个test呢？原来外部的这个堆内存啊，内存资源。就找不着啦，因为它的指针被覆盖了嘛，对不对？
 
-![image-20230414191655656](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414191655656.png)
+![image-20230414191655656](image/image-20230414191655656.png)
 
 
 
@@ -144,7 +144,7 @@ pop back.同学们想一想啊，这个容器呢？底层的这个对象很有�
 
 很明显在这里边，==我们delete就把这两件事情做完了==。而在呢，这里呢，我们需要把内存开辟跟对象的构造分离开。
 
-![image-20230414192041050](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414192041050.png)
+![image-20230414192041050](image/image-20230414192041050.png)
 
 
 
@@ -152,7 +152,7 @@ pop back.同学们想一想啊，这个容器呢？底层的这个对象很有�
 
 ==这里边一个new把这两件事情就做完了==
 
-![image-20230414192108361](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414192108361.png)
+![image-20230414192108361](image/image-20230414192108361.png)
 
 
 
@@ -184,7 +184,7 @@ test对象从容器中删除的话，一定要调用它的吸垢。啊，一定�
 
 应该是做四件事。做四件事情，就是把就是内存开辟啊。内存释放。对象。对象构造。和对象析构。啊，对象构造和对象析构。
 
-![image-20230414192342436](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414192342436.png)
+![image-20230414192342436](image/image-20230414192342436.png)
 
 
 
@@ -208,13 +208,13 @@ test对象从容器中删除的话，一定要调用它的吸垢。啊，一定�
 
 这是一个类型的大小。啊，这是给个个数就行了，那我总共开辟的内内存大小是不是就这么大？
 
-![image-20230414192625561](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414192625561.png)
+![image-20230414192625561](image/image-20230414192625561.png)
 
 ### 2.负责内存释放
 
 另外一个day allocate。cate they allocate.啊，这是干什么的？这是负责内存释放啊，负责这个内存释放。这里边做的事情呢，就是free。内存释放只负责内存释放free。
 
-![image-20230414192745852](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414192745852.png)
+![image-20230414192745852](image/image-20230414192745852.png)
 
 
 
@@ -234,7 +234,7 @@ allocator deallocate。应该是allocate啊，开辟内存de locate construct这
 
 ### 定位new
 
-![image-20230414193018042](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414193018042.png)
+![image-20230414193018042](image/image-20230414193018042.png)
 
 
 
@@ -248,7 +248,7 @@ allocator deallocate。应该是allocate啊，开辟内存de locate construct这
 
 ### 看来T应该是一个类名
 
-![image-20230414193309172](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414193309172.png)
+![image-20230414193309172](image/image-20230414193309172.png)
 
 
 
@@ -270,7 +270,7 @@ allocator deallocate。应该是allocate啊，开辟内存de locate construct这
 
 参数列表就构成我们一个类型了，这个t呢，用的是我们前边定的这个t可以直接用起来。
 
-![image-20230414195706708](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414195706708.png)
+![image-20230414195706708](image/image-20230414195706708.png)
 
 
 
@@ -282,9 +282,9 @@ allocator deallocate。应该是allocate啊，开辟内存de locate construct这
 
 就是说const。const.a lock对吧all oc啊，这个你如果。啊，你让人家用户默认用这个就行了。
 
-![image-20230414202943619](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414202943619.png)
+![image-20230414202943619](image/image-20230414202943619.png)
 
-![image-20230414195819970](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414195819970.png)
+![image-20230414195819970](image/image-20230414195819970.png)
 
 
 
@@ -292,7 +292,7 @@ allocator deallocate。应该是allocate啊，开辟内存de locate construct这
 
 可以传一个自定义的这个。allocator进来，把我的底层的成员变量allocator是不是初始化一下？那现在我们简单一点，我们就不需要传递了，我们直接用我们默认的这个。
 
-![image-20230414195927443](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414195927443.png)
+![image-20230414195927443](image/image-20230414195927443.png)
 
 
 
@@ -304,7 +304,7 @@ allocator deallocate。应该是allocate啊，开辟内存de locate construct这
 
 down first等于。哎，容器底层所有的内存管理内存，开辟内存释放对象构造系统。现在都通过我们的空间配置器来啊，开闭内存allocate。是不是多少？给个数量就行了size就行了啊，我们elegant呢，下边呢会给这个size乘以个size of t。这个就只实现了开辟空间了。
 
-![image-20230414200107528](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414200107528.png)
+![image-20230414200107528](image/image-20230414200107528.png)
 
 
 
@@ -312,7 +312,7 @@ down first等于。哎，容器底层所有的内存管理内存，开辟内存�
 
 容器底层。啊。==内存开辟。内存释放，对象构造和析构都通过allocator空间配置器来实现==啊，都通过这个allocator空间配置器来实现。
 
-![image-20230414200215935](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414200215935.png)
+![image-20230414200215935](image/image-20230414200215935.png)
 
 ### 析构还是用allocator实现，而不是直接去delete
 
@@ -326,7 +326,7 @@ down first等于。哎，容器底层所有的内存管理内存，开辟内存�
 
 唉，这个就是。把。first.first，指针指向的数组的有效。元素进行什么析构操作？没问题了吧，
 
-![image-20230414200521728](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414200521728.png)
+![image-20230414200521728](image/image-20230414200521728.png)
 
 
 
@@ -338,7 +338,7 @@ down first等于。哎，容器底层所有的内存管理内存，开辟内存�
 
 有效的对象先析构，然后再把整个数组内存释放。这是我们容器里边实现的.
 
-![image-20230414200832600](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414200832600.png)
+![image-20230414200832600](image/image-20230414200832600.png)
 
 
 
@@ -354,7 +354,7 @@ down first等于。哎，容器底层所有的内存管理内存，开辟内存�
 
 内存地址就是first+I呗？那具体的数据是多少？具体的数据呢？就是构造一个有rhs引用的。呃，这个。容器的底层数组的di后元素。
 
-![image-20230414202659775](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414202659775.png)
+![image-20230414202659775](image/image-20230414202659775.png)
 
 
 
@@ -366,11 +366,11 @@ down first等于。哎，容器底层所有的内存管理内存，开辟内存�
 
 那这一部分呢？就跟我们的。这个拷贝构造是不一样的啦。大家注意一下，这里边的这个实线啊。
 
-![image-20230414203152559](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414203152559.png)
+![image-20230414203152559](image/image-20230414203152559.png)
 
 
 
-![image-20230414203215166](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414203215166.png)
+![image-20230414203215166](image/image-20230414203215166.png)
 
 ###  push_back()函数
 
@@ -378,7 +378,7 @@ push back。可不是这个样子了，push back。push back现在的意思是�
 
 啊，这样才是正确的。做完以后呢，让我这个last指针做一个加加操作。
 
-![image-20230414203250498](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414203250498.png)
+![image-20230414203250498](image/image-20230414203250498.png)
 
 ### pop_back()函数
 
@@ -388,7 +388,7 @@ push back。可不是这个样子了，push back。push back现在的意思是�
 
 是吧？然后呢alocatolk it。是虚构，是不是destroy？杠last。okay了，注意一下顺序啊，注意一下顺序，这个才正确，==一定要析构对象呢==。这些东西都不用改
 
-![image-20230414203407626](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414203407626.png)
+![image-20230414203407626](image/image-20230414203407626.png)
 
 ## 扩容操作
 
@@ -402,7 +402,7 @@ push back。可不是这个样子了，push back。push back现在的意思是�
 
 
 
-![image-20230414210349139](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414210349139.png)
+![image-20230414210349139](image/image-20230414210349139.png)
 
 
 
@@ -414,7 +414,7 @@ push back。可不是这个样子了，push back。push back现在的意思是�
 
 
 
-好了，现![image-20230414212807827](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414212807827.png)在我
+好了，现![image-20230414212807827](image/image-20230414212807827.png)在我
 
 
 
@@ -434,7 +434,7 @@ push back。可不是这个样子了，push back。push back现在的意思是�
 
 最后的这三个析构是我们刚开始站上的t1t2t3，那还多的这两个析构是谁呢？哎，这两个析构就是我们刚抛500克嘛，它相当于把t3这个对象给析构了。啊，现在这两个析构就是析构t1跟t2的，没有任何的问题。是不是没有任何的问题啊？
 
-![image-20230414212840046](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414212840046.png)
+![image-20230414212840046](image/image-20230414212840046.png)
 
 
 
@@ -444,11 +444,11 @@ push back。可不是这个样子了，push back。push back现在的意思是�
 
 嗯，你这效率也太低了吧？是不是效率也太低了？而且你不正确呀，不正确。尤其从容器删除元素的时候，你根本就没有调用。容器里边儿对象的这个析构函数，你有问题的，万一这个对象呢，占用了外部资源，你岂不是把外部资源就丢了吗
 
-![image-20230414212934156](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414212934156.png)
+![image-20230414212934156](image/image-20230414212934156.png)
 
 
 
-![image-20230414213030921](markdown-image/第4节课 理解容器空间配置器allocator的重要性.assets/image-20230414213030921.png)
+![image-20230414213030921](image/image-20230414213030921.png)
 
 
 
