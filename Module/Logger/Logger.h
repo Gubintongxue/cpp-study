@@ -26,6 +26,8 @@
 #include <mutex>
 #include <chrono>
 #include <condition_variable>
+#include <functional> //without .h
+
 
 #define TRIM(x) strrchr(x,'/')? strrchr(x,'/')+1 : x
 

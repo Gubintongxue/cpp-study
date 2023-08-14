@@ -31,7 +31,7 @@ static std::string getTimeStr() {
     std::chrono::milliseconds ms = std::chrono::duration_cast<std::chrono::milliseconds>(d);
     
 	struct tm tm;
-	::gmtime_r(&as_time_t, &tm);
+	//::gmtime_r(&as_time_t, &tm);
 
     char buf[80];
 	if(::strftime(buf, sizeof buf, "%F %H:%M:%S", &tm))

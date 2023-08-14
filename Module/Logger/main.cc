@@ -11,7 +11,12 @@
 *******************************************************/
 
 #include "Logger.h"
+#ifdef _WIN32
+#include <io.h>
+#else
 #include <unistd.h>
+#endif
+
 
 int main() {
     LOG_INIT("./test.log");
