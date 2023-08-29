@@ -14,7 +14,7 @@
 
 大家要是有兴趣的话。我说了啊嗯，你可以在互联网上去找一找啊，pro to buffer啊map类型的。使用你可以自己去看一看好吧
 
-![image-20230430180525011](markdown-image/09 protobuf实践讲解3.assets/image-20230430180525011.png)
+![image-20230430180525011](image/image-20230430180525011.png)
 
 啊，在类型这里边还给大家介绍了一个枚举，是不是啊枚举？那么，使用起来呢？跟其他的这个。呃pro to buffer定义的这个简单类型啊啊，区别不大。是吧呃，
 
@@ -44,7 +44,7 @@
 
 ==它处理完了以后还会给你返回一个rpc方法来处理完的一个响应==。啊，有可能是布尔值像我们的login，有可能是获取好友列表的一个列表类的这么一个user。对不对？
 
-![image-20230430202855209](markdown-image/09 protobuf实践讲解3.assets/image-20230430202855209.png)
+![image-20230430202855209](image/image-20230430202855209.png)
 
 
 
@@ -58,13 +58,13 @@
 
 
 
-![image-20230430203339662](markdown-image/09 protobuf实践讲解3.assets/image-20230430203339662.png)
+![image-20230430203339662](image/image-20230430203339662.png)
 
 这是获取好友列表诶，这个是get f类似request，这是好友列表，这个函数调用的时候呢，它的时参的序列化跟反。这是它响应的序列化跟反序列化。
 
 
 
-![image-20230430203549277](markdown-image/09 protobuf实践讲解3.assets/image-20230430203549277.png)
+![image-20230430203549277](image/image-20230430203549277.png)
 
 ## 上面就是业务的请求和响应
 
@@ -104,7 +104,7 @@ message这是定义消息类型的对吧啊？我现在定一个service。
 
 它只是对于rpc方法的一个描述，通过这个描述，它就可以去做rpc请求。所携带的参数的序列化和反序列化了，这是logan logan的这个小括号，里边儿就填它实参。实参的pro to buffer的类型表示。哪个呢login request？哎，这个returns return返回嘛，也就是说这个rpc方法执行完以后返回的这个prod buffer buffer的这个double类型是什么？当然就是这个login。response没问题吧，
 
-![image-20230430211433290](markdown-image/09 protobuf实践讲解3.assets/image-20230430211433290.png)
+![image-20230430211433290](image/image-20230430211433290.png)
 
 
 
@@ -114,7 +114,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 那么在这儿呢，这个这就是我在定义的这个service。服务方法啊，服务类以及。服务类里边儿包含的一些方法。
 
-![image-20230430211556963](markdown-image/09 protobuf实践讲解3.assets/image-20230430211556963.png)
+![image-20230430211556963](image/image-20230430211556963.png)
 
 那么，实际上，通过protelc把它生成CA加代码以后呢？这个不管是message还是service啊？它后边儿描述的这个名字呢，实际上都是一个class类。都是一个class类啊。大家先来看我操作，一会儿在画图板上给大家把这个它们分别生成的类以及它的一些特征。给大家画清楚，
 
@@ -122,7 +122,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 我们现在用protelc啊。来生成一下对应的C加加代码，我们来瞧一瞧啊。进入test这个目录里边。这个是。pro to buffer好吧啊，我们怎么生成？那pro toc，然后是test点proto杠杠cpp下横杠out等于后边儿是要生成的c加。原文件呢？是不是路径啊？就是当前目录下。啊，当前目录下好吧。
 
-![image-20230430211745382](markdown-image/09 protobuf实践讲解3.assets/image-20230430211745382.png)
+![image-20230430211745382](image/image-20230430211745382.png)
 
 
 
@@ -132,7 +132,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 ### 没有生成
 
-![image-20230430211800762](markdown-image/09 protobuf实践讲解3.assets/image-20230430211800762.png)
+![image-20230430211800762](image/image-20230430211800762.png)
 
 
 
@@ -146,19 +146,19 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 至于其他的啊。大家呢，可以课外进行自行的扩展。这必须得定义CC杠。generic.services.定义这个啊，定义下面的选项啊。这个表示。生成这个service服务类和rpc方法描述。否则默认它是不生成的啊。默认不生成。好吧啊，把这个加上。加上以后呢，我们来重新生成一下。
 
-![image-20230430211947974](markdown-image/09 protobuf实践讲解3.assets/image-20230430211947974.png)
+![image-20230430211947974](image/image-20230430211947974.png)
 
 ### 重新生成
 
 这里边儿可以定义很多的选项的啊。重新生成好了以后呢？有没有了？有了吧诶user service rpc。眼见的同学还会看到，它不仅仅生成了一个user service rpc啊，还生成了一个user service rpc杠stub。
 
-![image-20230430212042552](markdown-image/09 protobuf实践讲解3.assets/image-20230430212042552.png)
+![image-20230430212042552](image/image-20230430212042552.png)
 
 
 
 
 
-![image-20230430212053827](markdown-image/09 protobuf实践讲解3.assets/image-20230430212053827.png)
+![image-20230430212053827](image/image-20230430212053827.png)
 
 ### user service rpc_stub
 
@@ -166,7 +166,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 在我们之前画的这个图上，哎，这儿是不是也有一个stub呀？==stub我们说这个stub装装的意思。也可以当做一个代理类==。对吧啊，当我们这个本地调用一个rpc方法的时候，底层要做很多事情啊，相当于这些事情都是由这个代理类来帮我们做。OK吧啊，那到底是什么意思呢？怎么用呢？又有什么样的实际的意义呢？别着急，听我给大家一一道来啊。
 
-![image-20230430212206210](markdown-image/09 protobuf实践讲解3.assets/image-20230430212206210.png)
+![image-20230430212206210](image/image-20230430212206210.png)
 
 
 
@@ -190,7 +190,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 
 
-![image-20230430213101671](markdown-image/09 protobuf实践讲解3.assets/image-20230430213101671.png)
+![image-20230430213101671](image/image-20230430213101671.png)
 
 ## 2.
 
@@ -200,13 +200,13 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 #### LoginRequest类根本没有，继承message来的
 
-![image-20230430213209530](markdown-image/09 protobuf实践讲解3.assets/image-20230430213209530.png)
+![image-20230430213209530](image/image-20230430213209530.png)
 
 
 
 从抽象的角度来说呢，login request就是一个message。
 
-![image-20230430213337357](markdown-image/09 protobuf实践讲解3.assets/image-20230430213337357.png)
+![image-20230430213337357](image/image-20230430213337357.png)
 
 ### 提供方法
 
@@ -214,7 +214,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 对吧啊，它提供了什么方法呢？它提供了。来各位，它对于成员变量就是你message给你的成员变量，它提供了这样的就是name。还有pwd这样的读方法。
 
-![image-20230430213449858](markdown-image/09 protobuf实践讲解3.assets/image-20230430213449858.png)
+![image-20230430213449858](image/image-20230430213449858.png)
 
 
 
@@ -224,11 +224,11 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 可以干什么呀？去设置你成员变量的值。对上了吧啊，主要提供的就是这样的东西。
 
-![image-20230430213702776](markdown-image/09 protobuf实践讲解3.assets/image-20230430213702776.png)
+![image-20230430213702776](image/image-20230430213702776.png)
 
 来我们确认一下啊，不要让大家稀里糊涂的。class class啊。是不是这个message类型啊？这个port buffer namespace ID就是google port buffer，对不对啊？
 
-![image-20230430213754353](markdown-image/09 protobuf实践讲解3.assets/image-20230430213754353.png)
+![image-20230430213754353](image/image-20230430213754353.png)
 
 
 
@@ -238,7 +238,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 好吧啊，提供了。成员变量的读。写操作方法。好了，这就是我们之前所看到的用message定义的这个类型。
 
-![image-20230430213845043](markdown-image/09 protobuf实践讲解3.assets/image-20230430213845043.png)
+![image-20230430213845043](image/image-20230430213845043.png)
 
 ## 总结
 
@@ -266,7 +266,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 人家是一定会问的，不会说是啊。光问你结果出来没对吧？要问你底层的这个原理的啊，
 
-![image-20230430214242441](markdown-image/09 protobuf实践讲解3.assets/image-20230430214242441.png)
+![image-20230430214242441](image/image-20230430214242441.png)
 
 剩下的这个类你看。
 
@@ -274,13 +274,13 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 有这三个东西。我给大家把这个拷贝一下。
 
-![image-20230430214442812](markdown-image/09 protobuf实践讲解3.assets/image-20230430214442812.png)
+![image-20230430214442812](image/image-20230430214442812.png)
 
 
 
 哎，它主要包含了这三个东西。生成的这个类里边啊。播放的这三个东西，你把目光就放在这三个东西上。
 
-![image-20230430214521939](markdown-image/09 protobuf实践讲解3.assets/image-20230430214521939.png)
+![image-20230430214521939](image/image-20230430214521939.png)
 
 
 
@@ -288,7 +288,7 @@ get friend lists.好吧，来。同样的，这相当于就是描述了这个rpc
 
 是不是啊？但是这个名字。好像没有，随便起啊。这跟我们定义的rpc方法的这个名字login。还有这个get friend lists。一模一样的。是不是也就是说这方法的名字是不是就是我们定的rpc方法的这个？名字来决定的啊。
 
-![image-20230430214555378](markdown-image/09 protobuf实践讲解3.assets/image-20230430214555378.png)
+![image-20230430214555378](image/image-20230430214555378.png)
 
 
 
@@ -312,7 +312,7 @@ put buffer呢是非常重要的。之前我给大家说了它的好处，比叉m
 
 那然后呢？在具体的编码过程中啊，通过实践的编程，我觉得你可能会了解的更清晰一点。好的吧啊，那要注意当我们去写这么一个service服务类的时候，
 
-![image-20230430214655867](markdown-image/09 protobuf实践讲解3.assets/image-20230430214655867.png)
+![image-20230430214655867](image/image-20230430214655867.png)
 
 
 
@@ -322,11 +322,11 @@ put buffer呢是非常重要的。之前我给大家说了它的好处，比叉m
 
 ==就是服务就是rpc服务提供者这一端==的好吧啊。这个用在这一端的。到时候这个方法我们是需要重写的，对不对啊？先不说那么多呃，这个方法呢，
 
-![image-20230430214909961](markdown-image/09 protobuf实践讲解3.assets/image-20230430214909961.png)
+![image-20230430214909961](image/image-20230430214909961.png)
 
 ### 远程方法执行的一端
 
-![image-20230430214919337](markdown-image/09 protobuf实践讲解3.assets/image-20230430214919337.png)
+![image-20230430214919337](image/image-20230430214919337.png)
 
 
 
@@ -334,7 +334,7 @@ put buffer呢是非常重要的。之前我给大家说了它的好处，比叉m
 
 这个方法呢，从一个service继承基类上来也非常重要啊，这里边儿我们认识到两个基类，一个是message表示消息的，一个是service。服务方法对象的。对不对哎？这是站在基类，站在抽象的角度来描述嘛，对不对啊
 
-![image-20230430215121555](markdown-image/09 protobuf实践讲解3.assets/image-20230430215121555.png)
+![image-20230430215121555](image/image-20230430215121555.png)
 
 
 
@@ -342,13 +342,13 @@ put buffer呢是非常重要的。之前我给大家说了它的好处，比叉m
 
 对不对啊？那么，它的方法有两个，你一定义了几个rpc方法，它就有几个方法，产生方法的参数都有四个。方法都一样，对不对？那个具体的调用这个方法的时候参数那肯定都在这个login request。get friend lists request.响应都在相应的第三个参数里。对不对？那这些参数什么时候掉，什么时候传值对吧啊？它用在哪里的这个呢？先不要着急啊。
 
-![image-20230430215301683](markdown-image/09 protobuf实践讲解3.assets/image-20230430215301683.png)
+![image-20230430215301683](image/image-20230430215301683.png)
 
 
 
 最后，除了这些rpc方法以外，外加一个get descriptor。对吧，用来描述当前这个服务以及服务。所拥有的方法这么一个。成员函数啊，你了解到这儿就够了，你知道它生成了什么东西以及生成的这个东西里边儿有哪？些方法给你提供了。理解到这儿就可以了，我们后边儿写的时候会不断的回过头来去看这儿好吧。行，
 
-![image-20230430215202871](markdown-image/09 protobuf实践讲解3.assets/image-20230430215202871.png)
+![image-20230430215202871](image/image-20230430215202871.png)
 
 
 

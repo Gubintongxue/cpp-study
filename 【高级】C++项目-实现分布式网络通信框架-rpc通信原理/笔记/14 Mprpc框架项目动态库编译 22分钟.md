@@ -6,7 +6,7 @@
 
 方法名字。参数类型。跟这个方法的返回值的一个响应类型，这个pro to buffer的这个类型定义你得先写出来，生成相应的是不是c跟CA加文件啊？
 
-![image-20230504161842834](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504161842834.png)
+![image-20230504161842834](image/image-20230504161842834.png)
 
 
 
@@ -16,7 +16,7 @@
 
 对不对？那么注意同学们这个user service点CC，我们是写在example靠力下边的对吧啊example呢是我们。这个什么呀，是我们框架的使用示例啊，框架的使用示例代码。我们从这个user service rpc记上来重写一下这个logan的方法，这个logan里边儿写的。这四步操作啊是。有一些啊，都是我们框架给我们封装完的，对不对呃？
 
-![image-20230504162121988](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504162121988.png)
+![image-20230504162121988](image/image-20230504162121988.png)
 
 
 
@@ -34,7 +34,7 @@
 
 进入阻塞状态，等待远程的rpc。进行一个调用的一个请求，我们在src这个框架代码里边也输出了相应的这个mp rpc application，这个类跟RP。c provider这个类。
 
-![image-20230504162230411](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504162230411.png)
+![image-20230504162230411](image/image-20230504162230411.png)
 
 
 
@@ -58,7 +58,7 @@ src框架的代码呢？我们肯定要向外部提供成一个so库好吧？所
 
 嗯，做了一，尤其是这两句做了一个注释啊，这个src包含了mpr PC框架的所有。相关代码在这个目录里边，再去搜索c make lists是不是好了？
 
-![image-20230504162451160](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504162451160.png)
+![image-20230504162451160](image/image-20230504162451160.png)
 
 
 
@@ -66,13 +66,13 @@ src框架的代码呢？我们肯定要向外部提供成一个so库好吧？所
 
 在src底下呢，我们加一个。cm ake.lists点TXT这个文件啊。
 
-![image-20230504162543107](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504162543107.png)
+![image-20230504162543107](image/image-20230504162543107.png)
 
 ## include文件夹下
 
 那。这个src目录下就有一个include目录里边放的都是我们框架设计的头文件啊，因为到时候这个include这个。文件夹需要拷贝到输出文件里边儿啊，因为我们最终把这个框架的头文件跟so库提供给用户使用就可以了。
 
-![image-20230504164634973](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504164634973.png)
+![image-20230504164634973](image/image-20230504164634973.png)
 
 
 
@@ -80,7 +80,7 @@ src框架的代码呢？我们肯定要向外部提供成一个so库好吧？所
 
 是不是然后src根目录下放的都是框架的源码，所以在这里边儿我就定一个aux。点儿src list，这应该都还记着呢吧？当前目录的所有源文件名字啊，放入这个src list。
 
-![image-20230504164738313](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504164738313.png)
+![image-20230504164738313](image/image-20230504164738313.png)
 
 ## 动态库
 
@@ -88,13 +88,13 @@ src框架的代码呢？我们肯定要向外部提供成一个so库好吧？所
 
 对不对啊？我们把它叫做mpr PC。有我们的谁呀？src list.这些源文件生成而来，生成一个share的动态库。好了吧，生成一个share的动态库。
 
-![image-20230504164818681](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504164818681.png)
+![image-20230504164818681](image/image-20230504164818681.png)
 
 ## 顶级目录cmakelisth中定义了库文件的输出目录
 
 那因为我们在顶级的这个simic list里边儿输出了啊，已经set过了。库文件都输出在这个根目录的lib lab目录下啊lab目录下。
 
-![image-20230504164919032](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504164919032.png)
+![image-20230504164919032](image/image-20230504164919032.png)
 
 
 
@@ -102,13 +102,13 @@ src框架的代码呢？我们肯定要向外部提供成一个so库好吧？所
 
 这里边儿啊provider的这个编译啊。它是需要用到我们框架的代码的。那它就应该是动态链接，我们框架的so库对不对？所以在这里边儿有一个target link libraries。谁要link呢？生成的这个provider。程序呢，需要链接我们的动态库链接我们的mprpc这是链接我们框架的这个so库。
 
-![image-20230504165258220](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504165258220.png)
+![image-20230504165258220](image/image-20230504165258220.png)
 
 
 
 它还使用了pro to buffer，所以还得链接谁呀？proto bof pro buffer的这个so库。好了吧啊，写到这儿就OK了。
 
-![image-20230504165312334](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504165312334.png)
+![image-20230504165312334](image/image-20230504165312334.png)
 
 
 
@@ -118,7 +118,7 @@ src框架的代码呢？我们肯定要向外部提供成一个so库好吧？所
 
 就是指出来了一个错误，在我们的c make list里边儿啊。呃，you have called add library for library mpr PC，我们框架的那个c make list里边。哦，这也没写对啊。那这意思就是说呢，我们的at library啊？==for library mpr PC生成的这个动态库without any source files。就是没有关联任何的源文件啊，你没有源文件怎么生成动态库呢？对不对啊？因为这写错了啊。==
 
-![image-20230504165456159](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504165456159.png)
+![image-20230504165456159](image/image-20230504165456159.png)
 
 
 
@@ -134,7 +134,7 @@ src框架的代码呢？我们肯定要向外部提供成一个so库好吧？所
 
 rpc provider.点CC。rpc provider点h这个头文件找不着。来，大家一起看看这个错误是什么啊？
 
-![image-20230504165640257](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504165640257.png)
+![image-20230504165640257](image/image-20230504165640257.png)
 
 这个头文件在src include嘛？这个头文件在顶级目录的simic list里边已经设置了头文件的搜索路径，是不是啊？s项目的根目录，底下的src，底下的include。
 
@@ -144,7 +144,7 @@ rpc provider.点CC。rpc provider点h这个头文件找不着。来，大家一�
 
 上面这project嘛。我少个t。
 
-![image-20230504165659240](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504165659240.png)
+![image-20230504165659240](image/image-20230504165659240.png)
 
 
 
@@ -152,7 +152,7 @@ rpc provider.点CC。rpc provider点h这个头文件找不着。来，大家一�
 
 
 
-![image-20230504165848320](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504165848320.png)
+![image-20230504165848320](image/image-20230504165848320.png)
 
 
 
@@ -166,11 +166,11 @@ rpc provider.点CC。rpc provider点h这个头文件找不着。来，大家一�
 
 也生成好了。是不是也生成好了OK？这现在相当于我就给大家啊，把我们这个项目的这个。编译，环境基本上呢，就写全了，后边我们只需要填代码编译就可以了。好不好啊？
 
-![image-20230504170015826](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504170015826.png)
+![image-20230504170015826](image/image-20230504170015826.png)
 
 
 
-![image-20230504170024061](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504170024061.png)
+![image-20230504170024061](image/image-20230504170024061.png)
 
 
 
@@ -194,7 +194,7 @@ rpc provider.点CC。rpc provider点h这个头文件找不着。来，大家一�
 
 文端口号。好吧呃，那么在这儿呢，我们就开始写了啊。
 
-![image-20230504170156488](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504170156488.png)
+![image-20230504170156488](image/image-20230504170156488.png)
 
 init来看看。在这个里边呢，我们就要。这个init的函数已经接收到了main函数的这些参数，是不是啊？==如果说argc小于二，那说明什么呀？那说明啊。你这个程序rpc服务站点啊，启动的时候根本就没有传入任何参数，==
 
@@ -208,7 +208,7 @@ init来看看。在这个里边呢，我们就要。这个init的函数已经接
 
 
 
-![image-20230504170356871](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504170356871.png)
+![image-20230504170356871](image/image-20230504170356871.png)
 
 
 
@@ -218,7 +218,7 @@ init来看看。在这个里边呢，我们就要。这个init的函数已经接
 
 对吧啊？这个就是提示啊。提示嗯。command.杠I，这必须有一个。config.fail对不对啊？format format就是格式，必须是你的命令啊，你的可执行文件是不是啊？然后是杠i config file。这个别出错了啊。
 
-![image-20230504170642183](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504170642183.png)
+![image-20230504170642183](image/image-20230504170642183.png)
 
 
 
@@ -230,7 +230,7 @@ init来看看。在这个里边呢，我们就要。这个init的函数已经接
 
 这儿的话呢，因为我们要读这个参数，我们那很经典的，就用get这个opt了是吧？来各位，我们慢一下get opt。不在这个里边儿啊。啊有get opt是在unh TD点h里边啊，那我们包含一下这个头文件。这个呢，是返回一个返回一个整型值啊，然后这是arg car gv，还有你要的一个。参数选项对不对？
 
-![image-20230504170803909](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504170803909.png)
+![image-20230504170803909](image/image-20230504170803909.png)
 
 ## 读参数
 
@@ -238,7 +238,7 @@ init来看看。在这个里边呢，我们就要。这个init的函数已经接
 
 然后呢，在这while。c=get opt第一个是argc第二个是arg v第三个是。参数对不对？我们是需要一个杠I参数的，而且这个是必须有加冒号。好吧啊，如果呢，不等于负一。OK，那么在这我们继续来看啊。继续来看。
 
-![image-20230504222204434](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504222204434.png)
+![image-20230504222204434](image/image-20230504222204434.png)
 
 
 
@@ -246,11 +246,11 @@ init来看看。在这个里边呢，我们就要。这个init的函数已经接
 
 人家这里边儿都有一些说明是吧啊，我们就不一一细看了。它的这个命令行参数后边儿所带的值就在它的全局变量这个。呃OP targ字符串类的。好的吧啊，字符串里边。
 
-![image-20230504222147581](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504222147581.png)
+![image-20230504222147581](image/image-20230504222147581.png)
 
 那么在这里 switch c
 
-![image-20230504222333786](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504222333786.png)
+![image-20230504222333786](image/image-20230504222333786.png)
 
 
 
@@ -260,7 +260,7 @@ init来看看。在这个里边呢，我们就要。这个init的函数已经接
 
 如果这是一个问号儿，这相当于就是它出现了我们。怎么样啊？不希望出现的这个参数，我这里边儿的这个参数的列表只是I必须出现I。
 
-![image-20230504222518576](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504222518576.png)
+![image-20230504222518576](image/image-20230504222518576.png)
 
 
 
@@ -278,7 +278,7 @@ invalid.args.invalid arg s.那然后呢？把这个show arg help给它。再弄�
 
 以后呢？那相当于就是呢，我们。正确，你输入一个command杠I配置文件，那这个配置文件的名字呢？就是。在这儿呢，对不对？
 
-![image-20230504222829405](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504222829405.png)
+![image-20230504222829405](image/image-20230504222829405.png)
 
 
 
@@ -288,7 +288,7 @@ invalid.args.invalid arg s.那然后呢？把这个show arg help给它。再弄�
 
 他是不会做的。对不对啊？那我们的mp rpc application是负责初始化的。包括一些日志啊，配置文件啊，对不对？配置文件的读取呢，你就不要在这个里边儿写了，你应该专门写一个config。一个模块专门来进行配置文件的加载。好的吧啊，
 
-![image-20230504223017484](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504223017484.png)
+![image-20230504223017484](image/image-20230504223017484.png)
 
 
 
@@ -298,7 +298,7 @@ invalid.args.invalid arg s.那然后呢？把这个show arg help给它。再弄�
 
 就是点h跟点CC来，专门在这里边做配置文件的加载。配置文件长什么样子呢？就是四行话嘛，就是四行话啊。这个rpc。sever IP等于什么？啊rpc server port等于什么？如keeper IP。等于什么如？pot等于什么？就把这四个项一加载就行了，
 
-![image-20230504225857548](markdown-image/14 Mprpc框架项目动态库编译 22分钟.assets/image-20230504225857548.png)
+![image-20230504225857548](image/image-20230504225857548.png)
 
 大家也可以先想一想，而我们该怎么去？加载这样的一个。
 
